@@ -14,8 +14,11 @@
 * the "font-display" option must be inserted as param inside the css function @font-face{}.                               *
 * A possible way is, to use the php cURL extension to manipulate this external resourse and add                           *
 * the font-display option param inside the css function.                                                                  *
+* And also, very important thing, if the external resource is charged by server side,                                     *
+* the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost server and       * 
+* client are the same device.                                                                                             *
 * With this tecnique is also possible to manipulate, more or less, everything; others external resource like:             *
-* google-map, file css, file js, jquery, what do you want ...                                                             *
+* google-map, file css, file js, jquery, what do you want ...                                                             *                                                            
 * How you can see, I have used the curl_multi_init() istead of curl_init(), this to make you free to change,              *
 * if you wish, the php class and to add more than one font resource.                                                      *
 * CLASS USAGE:                                                                                                            *
@@ -23,7 +26,7 @@
 * $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");              *
 * Where param 1 is a string, is the link to external font resource, in this example by google font.                       *
 * param 2 is a string, is the performance controlling option. Possible values are:                                        *
-*  auto | block | swap | fallback | optional                                                                              *
+* auto | block | swap | fallback | optional                                                                               *
 * For a complete reference guide and option usage please consult:                                                         *
 * https://developers.google.com/web/updates/2016/02/font-display                                                          *
 **************************************************************************************************************************/
@@ -80,7 +83,8 @@ width:100%;
         As far as I know, Google has not yet solved this issue and, to work, 
         the "font-display" option must be inserted as param inside the css function @font-face{}.<br>   
         A possible way is, to use the php cURL extension to manipulate this external resourse and add 
-        the font-display option param inside the css function.<br><br>
+        the font-display option param inside the css function. And also, very important thing, if the external resource is charged by server side, 
+        the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost, server and client are the same device.<br><br>
         With this tecnique is also possible to manipulate, more or less, everything; others external resource like: 
         google-map, file css, file js, jquery, what do you want ...<br><br> 
         How you can see, I have used the curl_multi_init() istead of curl_init(), this to make you free to change, if you wish, the php class and 
