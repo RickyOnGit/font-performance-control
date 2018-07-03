@@ -1,4 +1,4 @@
-<h1>Author: Riccardo Castagna MBA, PHP developer - Palermo (ITALY) <a href=https://api.whatsapp.com/send?phone=393315954155>contact</a></h1>
+<h1>Author: Riccardo Castagna MBA, PHP developer - Palermo (ITALY) </h1>
 <p>This php class solves the problem to charge an external font resource 
 with the <strong>"controlling font performance"</strong> using <strong>font-display</strong> options.<br>
 This option is useful, to fast load the external font and in general to have the control over browser behavioral and, in particular, over how the
@@ -24,5 +24,6 @@ Where param 1 is a string, is the link to external font resource, in this exampl
 param 2 is a string, is the performance controlling option. Possible values are:<br>
  auto | block | swap | fallback | optional<br> 
 For a complete reference guide and option usage please consult:<br> 
-<a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a>  
+<a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br><br>
+<a href=https://api.whatsapp.com/send?phone=393315954155>contact</a> 
 </p> 
