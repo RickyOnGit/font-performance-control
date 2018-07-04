@@ -25,6 +25,7 @@ Where param 1 is a string, is the link to external font resource, in this exampl
 param 2 is a string, is the performance controlling option. Possible values are:<br>
  auto | block | swap | fallback | optional<br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
-<a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br><br>
+<a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br>
+<a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">w3c font display</a><br><br>
 <a href="https://api.whatsapp.com/send?phone=393315954155">Info & Contacts</a> 
 </p> 
