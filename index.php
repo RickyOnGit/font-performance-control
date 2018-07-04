@@ -99,7 +99,8 @@ width:100%;
         <strong>auto | block | swap | fallback | optional</strong><br><br> 
         For a complete reference guide about font-display descriptors please consult:<br> 
         <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display
-        </a><br><br>
+        </a><br>
+        <a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a><br><br>
         <a href="https://api.whatsapp.com/send?phone=393315954155">info & contacts</a>  
     </p> 
   </body>
