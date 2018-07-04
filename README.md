@@ -9,10 +9,10 @@ when you call the query, for example, through google font API:<br>
 and you wish to add the descriptor param: "&font-display=fallback" <br>
 making something like this: "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500&font-display=fallback".<br> 
 As far as I know, Google has not yet solved this issue and, to work, 
-the "font-display" descriptor option must be inserted as param within the css function @font-face{}.<br>   
+the "font-display" descriptor option must be inserted as param inside the css function @font-face{}.<br>   
 A possible way is, to use the php cURL extension to manipulate this external resourse and add 
-the font-display option param inside the css function. And also, very important thing, if the external resource is charged by server side, 
-the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost, server and client are the same device.<br><br>
+the font-display option param inside the css function. And also, very important thing, if the external resource is charged through server side, the client side gain. 
+Working on localhost, obviously, the thing is imperceptible because on localhost, server and client are the same device.<br><br>
 With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     
 google-map, file css, file js, jquery, what do you want, with the aim to lighten the client's operations and also       
 to hide any API keys.                                       
