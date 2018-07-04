@@ -1,8 +1,10 @@
 <h1>Author: Riccardo Castagna MBA, PHP developer - Palermo (ITALY) </h1>
 <p>This php class solves the problem to charge an external font resource 
 with the <strong>"controlling font performance"</strong> using <strong>font-display</strong> options.<br>
-This option is useful, to fast load the external font and in general to have the control over browser behavioral and, in particular, over how the
-browser has to load the external font.<br><br>  
+This option is useful, to fast load the external font and in general to have the control over browser behavioral
+and, in particular,<br> over how the different browsers have to load the external font.<br>                                
+This option is useful to make all text remains visible during web font loads,<br>                                           
+leveraging the font-display CSS feature to ensure text is user-visible while web fonts are loading.<br><br>  
 At the moment is no possible to add at any external font resource the font-display options,<br> 
 when you call the query, for example, through google font API:<br>
 "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500" <br>
