@@ -4,7 +4,9 @@
 * This php package solves the problem to charge an external font resource                                                 *
 * with the "controlling font performance" using font-display options.                                                     *
 * This option is useful, to fast load the external font and in general to have the control over browser behavioral        *
-* and, in particular, over how the browser has to load the external font.                                                 *
+* and, in particular, over how the different browsers have to load the external font.                                     *
+* This option is useful to make all text remains visible during web font loads,                                           *
+* leveraging the font-display CSS feature to ensure text is user-visible while web fonts are loading.                     *
 * At the moment is no possible to add at any external font resource the font-display options,                             *
 * when you call the query, for example, through google font API:                                                          *
 * "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500"                                             *
@@ -15,7 +17,7 @@
 * the "font-display" descriptor option must be inserted as param inside the css function @font-face{}.                    *
 * A possible way is, to use the php cURL extension to manipulate this external resourse and add                           *
 * the font-display option param inside the css function.                                                                  *
-* And also, very important thing, if the external resource is charged through server side,                                     *
+* And also, very important thing, if the external resource is charged through server side,                                *
 * the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost server and       * 
 * client are the same device.                                                                                             *
 * With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     *
@@ -75,14 +77,16 @@ width:100%;
    </div>
     <p>This php package solves the problem to charge an external font resource 
         with the <strong>"controlling font performance"</strong> using <strong>font-display</strong> options.<br>
-        This option is useful, to fast load the external font and in general to have the control over browser behavioral and,<br> in particular, over how the
-        browser has to load the external font.<br><br>  
+        This option is useful, to fast load the external font and in general to have the control over browser behavioral
+        and, in particular,<br> over how the different browsers have to load the external font.<br>                                
+        This option is useful to make all text remains visible during web font loads,<br>                                           
+        leveraging the font-display CSS feature to ensure text is user-visible while web fonts are loading.<br><br>  
         At the moment is no possible to add at any external font resource the font-display options,<br> 
         when you call the query, for example, through google font API:<br>
         "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500" <br>
         and you wish to add the descriptor param: "&font-display=fallback" <br>
-        making something like this query: "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500&font-display=fallback" <br><br> 
-        As far as I know, Google has not yet solved this issue and, to work, 
+        making something like this query:<br>"https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500&font-display=fallback"<br><br> 
+        As far as I know, Google has not yet solved this issue and, to work,<br> 
         the "font-display" descriptor option must be inserted as param inside the css function @font-face{}.<br>   
         A possible way is, to use the php cURL extension to manipulate this external resourse and add 
         the font-display option param inside the css function.<br> And also, very important thing, if the external resource is charged through server side, 
