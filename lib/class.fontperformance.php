@@ -24,7 +24,7 @@
 * google-map, file css, file js, jquery, what do you want, with the aim to lighten the client's operations and also       *
 * to hide any API keys.                                                                                                   *                                                            
 * How you can see, I have used the curl_multi_init() istead of curl_init(), this because, probably, in the future         *
-* I will add some other external resource to be loaded simultaneously.                                                    *
+* I will add some other external resource to be loaded simultaneously, changing something in the main class.              *
 * CLASS USAGE:                                                                                                            *
 * $ref= new Fontperformance;                                                                                              *
 * $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");              *
