@@ -26,5 +26,5 @@ param 2 is a string, is the performance controlling option. Possible values are:
  auto | block | swap | fallback | optional<br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
 <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br><br>
-<a href="https://api.whatsapp.com/send?phone=393315954155">contacts</a> 
+<a href="https://api.whatsapp.com/send?phone=393315954155">Info & Contacts</a> 
 </p> 
