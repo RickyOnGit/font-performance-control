@@ -4,7 +4,9 @@
 * This php package solves the problem to charge an external font resource                                                 *
 * with the "controlling font performance" using font-display options.                                                     *
 * This option is useful, to fast load the external font and in general to have the control over browser behavioral        *
-* and, in particular, over how the browser has to load the external font.                                                 *
+* and, in particular, over how the different browsers have to load the external font.                                     *
+* This option is useful to make all text remains visible during web font loads,                                           *
+* leveraging the font-display CSS feature to ensure text is user-visible while web fonts are loading.                     *
 * At the moment is no possible to add at any external font resource the font-display options,                             *
 * when you call the query, for example, through google font API:                                                          *
 * "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500"                                             *
@@ -15,7 +17,7 @@
 * the "font-display" descriptor option must be inserted as param inside the css function @font-face{}.                    *
 * A possible way is, to use the php cURL extension to manipulate this external resourse and add                           *
 * the font-display option param inside the css function.                                                                  *
-* And also, very important thing, if the external resource is charged by server side,                                     *
+* And also, very important thing, if the external resource is charged through server side,                                *
 * the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost server and       * 
 * client are the same device.                                                                                             *
 * With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     *
