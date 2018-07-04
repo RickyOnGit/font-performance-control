@@ -23,7 +23,7 @@ I will add some other external resource to be loaded simultaneously, changing so
 <strong>CLASS USAGE:</strong><br> 
 $ref= new Fontperformance;<br>
 $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");<br>
-Where param 1 is a string, is the link to external font resource, in this example by google font.<br>
+Where param 1 is a string, is the link to external font resource, in this example, through google font API.<br>
 param 2 is a string, is the performance controlling option. Possible values are:<br>
  auto | block | swap | fallback | optional<br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
