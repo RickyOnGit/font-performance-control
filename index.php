@@ -6,21 +6,23 @@
 * This option is useful, to fast load the external font and in general to have the control over browser behavioral        *
 * and, in particular, over how the browser has to load the external font.                                                 *
 * At the moment is no possible to add at any external font resource the font-display options,                             *
-* when you call the query, for example, of google font:                                                                   *
+* when you call the query, for example, through google font API:                                                          *
 * "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500"                                             *
-* and you wish to add the param: "&font-display=fallback"                                                                 *
-* like this query: "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500&font-display=fallback".     *
+* and you wish to add the descriptor param: "&font-display=fallback"                                                      *
+* making something like this query:                                                                                       *
+* "https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500&font-display=fallback".                      *
 * As far as I know, Google has not yet solved this issue and, to work,                                                    *
-* the "font-display" option must be inserted as param inside the css function @font-face{}.                               *
+* the "font-display" descriptor option must be inserted as param inside the css function @font-face{}.                    *
 * A possible way is, to use the php cURL extension to manipulate this external resourse and add                           *
 * the font-display option param inside the css function.                                                                  *
 * And also, very important thing, if the external resource is charged by server side,                                     *
 * the client side gain. Working on localhost, obviously, the thing is imperceptible because on localhost server and       * 
 * client are the same device.                                                                                             *
-* With this tecnique is also possible to manipulate, more or less, everything; others external resource like:             *
-* google-map, file css, file js, jquery, what do you want ...                                                             *                                                            
-* How you can see, I have used the curl_multi_init() istead of curl_init(), this to make you free to change,              *
-* if you wish, the php class and to add more than one font resource.                                                      *
+* With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     *
+* google-map, file css, file js, jquery, what do you want, with the aim to lighten the client's operations and also       *
+* to hide any API keys.                                                                                                   *                                                            
+* How you can see, I have used the curl_multi_init() istead of curl_init(), this because, probably, in the future         *
+* I will add some other external resource to be loaded simultaneously.                                                    *
 * CLASS USAGE:                                                                                                            *
 * $ref= new Fontperformance;                                                                                              *
 * $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");              *
