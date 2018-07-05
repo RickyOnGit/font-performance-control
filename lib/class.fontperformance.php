@@ -78,7 +78,7 @@ switch ($option) {
         $op = $option; 
         break;        
     default:
-      $op = "";
+        $op = "auto";
     echo "<p>You have set up a no correct value for font-display. Correct possible values are: auto | block | swap | fallback | optional  
           </p>
           <p>For a complete reference guide please consult: 
@@ -107,7 +107,7 @@ curl_multi_remove_handle($mh, $ch1);
 curl_multi_close($mh);
 $font = curl_multi_getcontent($ch1);
 $fontdisplayoption = str_replace("@font-face {","@font-face {\n font-display: ".$fontoption.";" , $font );
-return $fontdisplayoption;               
+return $fontdisplayoption;                
 }
 
 }
