@@ -23,7 +23,7 @@
 * With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     *
 * google-map, file css, file js, jquery, what do you want, with the aim to lighten the client's operations and also       *
 * to hide any API keys.                                                                                                   *                                                            
-* How you can see, I have used the curl_multi_init() istead of curl_init(), this because, probably, in the future         *
+* How you can see, I have used the curl_multi_init(), this because, probably, in the future                               *
 * I will add some other external resource to be loaded simultaneously, changing something in the main class.              *
 * CLASS USAGE:                                                                                                            *
 * $ref= new Fontperformance;                                                                                              *
@@ -94,7 +94,7 @@ width:100%;
         the client side gain.<br> Working on localhost, obviously, the thing is imperceptible because on localhost, server and client are the same device.<br><br>
         With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:<br> google-map, file css, 
         file js, jquery, what do you want, with the aim to lighten the client's operations and also to hide any API keys.<br><br> 
-        How you can see, I have used the curl_multi_init() istead of curl_init(),<br> this because, probably, in the future I will add some 
+        How you can see, I have used the curl_multi_init(),<br> this because, probably, in the future I will add some 
         other external resource to be loaded simultaneously, changing something in the main class.<br><br>
         <strong>CLASS USAGE:</strong><br> 
         <strong>$ref= new Fontperformance;</strong><br>
