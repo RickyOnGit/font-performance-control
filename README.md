@@ -18,7 +18,7 @@ Working on localhost, obviously, the thing is imperceptible because on localhost
 With this tecnique is also possible to manipulate, more or less, everything; others external resource and API like:     
 google-map, file css, file js, jquery, what do you want, with the aim to lighten the client's operations and also       
 to hide any API keys.                                       
-How you can see, I have used the curl_multi_init() istead of curl_init(), this because, probably, in the future         
+How you can see, I have used the curl_multi_init(), this because, probably, in the future         
 I will add some other external resource to be loaded simultaneously, changing something in the main class.<br><br>
 <strong>CLASS USAGE:</strong><br> 
 $ref= new Fontperformance;<br>
