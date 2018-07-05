@@ -37,6 +37,7 @@
 include_once("./lib/class.fontperformance.php"); 
 $ref= new Fontperformance;
 $font_display = $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");
+$font_display_2 = $ref->fontdisplay("https://fonts.googleapis.com/css?family=Rancho","fallback");
 ?>
 <!DOCTYPE html>
 <html lang='it'>
@@ -51,15 +52,15 @@ $font_display = $ref->fontdisplay("https://fonts.googleapis.com/css?family=Monts
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
     <link href='./php-icon.png' rel='shortcut icon' type='image/png'>
 <style>
-<?php echo $font_display ?>
+<?php echo $font_display, $font_display_2;  ?>
 body { 
 margin: 0px;
 padding: 0px;
 }
-h1, p {font-family:"Montserrat Alternates";}
+h1 {font-family:"Rancho";} 
+p {font-family:"Montserrat Alternates";}
 h1{
-font-size: 18px;
-font-weight: 500;
+font-size: 35px;
 text-align: center;
 }
 p {
