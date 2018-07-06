@@ -50,7 +50,7 @@
  param 2 is a string, is the performance controlling option. Possible values are:<br>                                        
  auto | block | swap | fallback | optional<br><br>                                                                               
                                                                                                                          
-<strong> ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)</strong><br>          
+<strong> ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)</strong>          
  $ref= new Fontperformance;                                                                                              
  $ref->multi_simul_fontdisplay("link_1","option_1","link_2","option_2","link_n","option_n", ... );                      
  where the params: link_1, link_2, link_n ... are "strings", are the links to external font resources<                    
