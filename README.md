@@ -18,24 +18,20 @@
  At the moment the only way is the manual set up for each<br>                                                                
  css element: p {font-family: 'MyWebFont', fallback, sans-serif;}</p><br><br>                                                        
  <p>As far as I know, google or someone else has not yet solved this issue and, to work,<br>                                    
- the "font-display" descriptor option must be inserted as value inside the css function @font-face{...}.<br><br>                 
- <strong>A possible way is, to use the php cURL extension to manipulate this external resourse and add<br>                           
- the font-display option param inside the css function.<br>                                                                  
- And also, very important thing, if the external resource is charged through server side,<br>                                
- the client side gain.</strong></p><br><br>                                                                                                   
-<p> With this tecnique is also possible to manipulate, more or less, everything with the aim to lighten<br>                     
- the client's operations and also with the possibility to hide any API keys when these are necessary.<br><br>                                                                                
- How you can see, I have used the curl_multi_init(), this because, with this class there is also the possibility<br>         
- to load the external fonts (ten maximum) all together simultaneously, it is faster but it must be used with extreme<br>     
+ the "font-display" descriptor option must be inserted as value inside the css function @font-face{...}.<br><br>
+ <strong> A possible way is, to use the PHP to manipulate this external resourse and add<br>                                          
+ the font-display option param inside the css function, moreover, in this way, the API keys, when these are necessary,<br>   
+ will be hidden.</strong><br><br>                                                                                                         With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP)<br>             
+ to load the external fonts (TEN MAXIMUM) all together simultaneously, it is faster but it must be used with extreme<br>     
  caution and with common sense, example file: index_2.php.<br>                                                               
- I have set up a maximum of ten fonts simultaneously,<br> ten is enough <strong>AND, PLEASE, NOT FROM ONLY ONE SERVER LIKE IN MY EXAMPLE</strong><br>if we          
- want to avoid to commute this demo into a cyber attack to google servers, and if we want to prevent<br>                     
+ Ten fonts simultaneously is enough<strong> AND, PLEASE, NOT FROM ONLY ONE SERVER</strong><br> if we                                       want to avoid to commute this demo into a cyber attack to google servers, and if we want to prevent<br>                     
  google killing me and you; I joke, obviously, I joke ... ;)<br>                                                             
- But, obviously, no one load ten fonts simultaneously in only one page.<br> For testing, in the example N&deg;2, fl. index_2.php, 
- by forcing, I have loaded seven different font simultaneously from only one server,<br>                                     
- seven are too much, but I did it only for testing, to show<br>                                                               
+ But, obviously, no one load ten fonts simultaneously in only one page. For testing, in the example N&deg;2, fl. index_2.php<br> 
+ by forcing the test, I have loaded seven different font simultaneously from only one server,<br>                            
+ seven are too much, but I did it only for testing to show<br>                                                               
  that also in this case, with seven different fonts loaded simultaneously, all text remains visible with<br>                 
- the set up of the font-display during web fonts load.</p><br><br>                                                                   
+ the set up of the font-display during web fonts load.</p><br><br>
+ 
  <p>To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  
  I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
  style media="none" onload="if(media!='all')media='all'"<br>                                                              
@@ -45,7 +41,8 @@
                                                                                                                          
 <p><strong> SIMPLE CLASS USAGE EXAMPLE N&deg;1 FILE: INDEX.PHP (NO SIMULTANEOUSLY)</strong><br>                                                      
  $ref= new Fontperformance;<br>                                                                                              
- $ref->fontdisplay("https://fonts.googleapis.com/css?family=Montserrat+Alternates%3A300%2C500","fallback");<br>              
+ $font_1 = $ref->fontdisplay("link_to_font_api","fallback");<br>                                                             
+ $font_2 = $ref->fontdisplay("link_to_font_api","auto");<br>               
  Where param 1 is a string, is the link to external font resource, in this example through google font api.<br>              
  param 2 is a string, is the performance controlling option. Possible values are:<br>                                        
  auto | block | swap | fallback | optional<br><br>                                                                               
