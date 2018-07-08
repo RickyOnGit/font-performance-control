@@ -44,7 +44,7 @@
  $font_1 = $ref->fontdisplay("link_to_font_api","fallback");<br>                                                             
  $font_2 = $ref->fontdisplay("link_to_font_api","auto");<br>               
  Where param 1 is a string, is the link to external font resource, in this example through google font api.<br>              
- param 2 is a string, is the performance controlling option. Possible values are:<br>                                        
+ param 2 is a string, is the performance controlling option. Possible values are:                                        
  auto | block | swap | fallback | optional<br><br>                                                                               
                                                                                                                          
 <strong> ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)</strong>          
