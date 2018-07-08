@@ -44,7 +44,7 @@
  $font_1 = $ref->fontdisplay("link_to_font_api","fallback");<br>                                                             
  $font_2 = $ref->fontdisplay("link_to_font_api","auto");<br>               
  Where param 1 is a string, is the link to external font resource, in this example through google font api.<br>              
- param 2 is a string, is the performance controlling option. Possible values are:                                        
+ param 2 is a string, is the performance controlling option. Possible values are:<br>                                        
  auto | block | swap | fallback | optional<br><br>                                                                               
                                                                                                                          
 <strong> ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)</strong>          
@@ -52,7 +52,7 @@
  $apilink = array("link_to_font_api_1","link_to_font_api_n", ....);                                                      
  $ref->multi_simul_fontdisplay($apilink,"fallback" );                                                                    
  where the params1 is an array with all links to the font api                                                            
- and where the param 2 is a string, is the performance controlling option. Possible values are:<br>  
+ and where the param 2 is a string, is the performance controlling option. Possible values are:  
  auto | block | swap | fallback | optional , this will return an array with all fonts.<br>                                
 <strong> PLEASE DO NOT FOLLOW MY BAD EXAMPLE, DON'T LOAD MORE THAN TWO MAXIMUM DIFFERENT FONTS SIMULTANEOUSLY</strong><br><br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
