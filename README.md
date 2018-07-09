@@ -31,13 +31,22 @@
  seven are too much, but I did it only for testing to show<br>                                                               
  that also in this case, with seven different fonts loaded simultaneously, all text remains visible with<br>                 
  the set up of the font-display during web fonts load.</p><br><br>
- 
- <p>To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  
- I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
- style media="none" onload="if(media!='all')media='all'"<br>                                                              
- The ligthhouse reports of these two demo:<br>
- example N&deg;1: <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=2ab2a3c0e95f3d8994e1e1cf20171941">lighthouse performance report N 1</a><br>                                          
- example N&deg;2: <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=798a57975a8555b6417a09446ce50b09">lighthouse performance report N 2</a></p><br><br>                                                                                                                       
+ <p>To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
+ style media="none" onload="if(media!='all')media='all'"<br><br>                                                              
+ Here you can see the ligthhouse reports, about performances, of these two demo,<br>example N&deg;1 with two fonts not loaded simultaneously and<br>
+ example N&deg;2 with seven fonts loaded simultaneously;<br><br>  
+ example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
+ CPU throttling: 4x slowdown (DevTools):<br> 
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6">lighthouse performance report N 1</a><br>
+ example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)<br>
+ CPU throttling: 4x slowdown (Simulated):<br>
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=e79ffd09199fecaa5ecd35f84f3d32e8">lighthouse performance report N 1</a><br><br>                                          
+ example N&deg;2 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
+ CPU throttling: 4x slowdown (DevTools):<br>
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b24ca1a4133363fe11af4f749297db8f">lighthouse performance report N 2</a><br>
+ example N&deg;2 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)<br>
+ CPU throttling: 4x slowdown (Simulated):<br>
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=8de61075ff1dec66617965bf5a51abc6">lighthouse performance report N 2</a></p><br><br>                                                                                                                       
                                                                                                                          
 <p><strong> SIMPLE CLASS USAGE EXAMPLE N&deg;1 FILE: INDEX.PHP (NO SIMULTANEOUSLY)</strong><br>                                                      
  $ref= new Fontperformance;<br>                                                                                              
