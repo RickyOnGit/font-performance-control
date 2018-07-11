@@ -91,7 +91,15 @@ list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display;
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
     <link href='./php-icon.png' rel='shortcut icon' type='image/png'>
 <style media="none" onload="if(media!='all')media='all'" >
-<?php echo $font_1, $font_2, $font_3, $font_4, $font_5, $font_6,$font_7;  ?>
+
+<?php 
+/*****************************************************************
+ * to print you may use or list()=$array; like in this example or 
+ * avoid list()=$array; and print iside style with foreach:
+ * <style> <?php foreach($font_display as $fonts){echo $fonts;} ?> ...
+ *****************************************************************/
+echo $font_1, $font_2, $font_3, $font_4, $font_5, $font_6,$font_7;  
+?>
 body { 
 margin: 0px;
 padding: 0px;
