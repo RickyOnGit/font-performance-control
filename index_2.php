@@ -25,13 +25,13 @@
 * A possible way is, to use the PHP to manipulate this external resourse and add                                          *
 * the font-display option param inside the css function, moreover, in this way, the API keys, when these are necessary,   *
 * will be hidden.                                                                                                         *                                                            
-* With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE N°2 FILE: INDEX_2.PHP)             *
+* With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE NÂ°2 FILE: INDEX_2.PHP)             *
 * to load the external fonts (TEN MAXIMUM, PLEASE) all together simultaneously, it is faster but it must be used          *
 * with extreme  caution and with common sense, example file: index_2.php.                                                 *
 * Ten fonts simultaneously is enough AND, PLEASE, NOT FROM ONLY ONE SERVER if we                                          *
 * want to avoid to commute this demo into a cyber attack to google servers, and if we want to prevent                     *
 * google killing me and you; I joke, obviously, I joke ... ;)                                                             *
-* But, obviously, no one load ten fonts simultaneously in only one page. For testing, in the example N°2, fl. index_2.php *
+* But, obviously, no one load ten fonts simultaneously in only one page. For testing, in the example NÂ°2, fl. index_2.php *
 * by forcing the test, I have loaded seven different font simultaneously from only one server,                            *
 * seven are too much, but I did it only for testing to show                                                               *
 * that also in this case, with seven different fonts loaded simultaneously, all text remains visible with                 *
@@ -43,7 +43,7 @@
 * The ligthhouse report of this demo with seven fonts loaded simultaneously is:                                           *
 * https://googlechrome.github.io/lighthouse/viewer/?gist=798a57975a8555b6417a09446ce50b09                                 *                                                                                      *
 *                                                                                                                         *
-* SIMPLE CLASS USAGE EXAMPLE N°1 FILE: INDEX.PHP (NO SIMULTANEOUSLY)                                                      *
+* SIMPLE CLASS USAGE EXAMPLE NÂ°1 FILE: INDEX.PHP (NO SIMULTANEOUSLY)                                                      *
 * $ref= new Fontperformance;                                                                                              *
 * $font_1 = $ref->fontdisplay("link_to_font_api","fallback");                                                             *
 * $font_2 = $ref->fontdisplay("link_to_font_api","auto");                                                                 *
@@ -51,7 +51,7 @@
 * param 2 is a string, is the performance controlling option. Possible values are:                                        *
 * auto | block | swap | fallback | optional                                                                               *
 *                                                                                                                         *
-* ADVANCED CLASS USAGE EXAMPLE N°2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)                                                     *
+* ADVANCED CLASS USAGE EXAMPLE NÂ°2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)                                                     *
 * $ref= new Fontperformance;                                                                                              *
 * $apilink = array("link_to_font_api_1","link_to_font_api_n", ....);                                                      *
 * $ref->multi_simul_fontdisplay($apilink,"fallback" );                                                                    *
@@ -95,7 +95,7 @@ list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display;
 <?php 
 /*****************************************************************
  * to print you may use or list()=$array; like in this example or 
- * avoid list()=$array; and print iside style with foreach:
+ * avoid list()=$array; and print inside style with foreach:
  * <style> <?php foreach($font_display as $fonts){echo $fonts;} ?> ...
  *****************************************************************/
 echo $font_1, $font_2, $font_3, $font_4, $font_5, $font_6,$font_7;  
