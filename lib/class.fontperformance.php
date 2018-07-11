@@ -144,11 +144,13 @@ return $fontdisplayoption;
 }
 
 
+
 public function multi_simul_fontdisplay($paramfont,$paramoption){
 if ((is_array($paramfont))&&(isset($paramoption))) {
 $ssl = $this->sslresolve();
 $n = count($paramfont);
 $q = count($paramoption);
+$stop = ($n -1);
 if(($n>0)&&($q==1)){
 $running = null;
 $ch = array();
@@ -160,12 +162,12 @@ $fontoption[0]=$this->optionresolve($paramoption);
 $externalfont[0] = $this->linkresolve($paramfont[0]);
 $ch[0] = curl_init();
 $this->set_option($ch[0], $ssl.$externalfont[0]);
-$mh = curl_multi_init();
+$mh = curl_multi_init(); 
 curl_multi_add_handle($mh, $ch[0]);
  
 $m=1;
 foreach ($paramfont as $k => $fontvalue){
-if($k!=0){          
+if($k!==0){           
 $fontoption[$m]=$this->optionresolve($paramoption);
 $externalfont[$m] = $this->linkresolve($fontvalue);
 $ch[$m] = curl_init();  
@@ -189,14 +191,17 @@ $x++;
 $y = 0;
 foreach($fontoption as $fontoptionval ){
 foreach($font as $fontvalor ){
+if ($y <= $stop){
 $multifont[$y] = $this->fontfaceresolve($fontoptionval,$fontvalor);
-$y++; 
+$y++;
+}else 
+break; 
 }
 } 
 curl_multi_close($mh);
 }
 }
-return $multifont; 
+return $multifont;  
 }
 
 }
