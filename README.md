@@ -19,6 +19,8 @@
  css element: p {font-family: 'MyWebFont', fallback, sans-serif;}</p><br><br>                                                        
  <p>As far as I know, google or someone else has not yet solved this issue and, to work,<br>                                    
  the "font-display" descriptor option must be inserted as value inside the css function @font-face{...}.<br><br>
+ In short,<a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">as reported by the W3C</a>, when a font is served by a third-party font foundry,<br> the developer does not control the @font-face rules[..],<br>
+ the importance to set a default policy for an entire font-family<br> is also useful to avoid the ransom note effect (i.e. mismatched font faces).<br><br> 
  <strong> A possible way is, to use the PHP to manipulate this external resourse and add<br>                                          
  the font-display option param inside the css function, moreover, in this way, the API keys, when these are necessary,<br>   
  will be hidden.</strong><br><br>                                                                                                        With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE: INDEX_2.PHP)<br>             
