@@ -26,24 +26,24 @@
 * the font-display option param inside the css function, moreover, in this way, the API keys, when these are necessary,   *
 * will be hidden.                                                                                                         *                                                            
 * With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE N°2 FILE: INDEX_2.PHP)             *
-* to load the external fonts (TEN MAXIMUM, PLEASE) all together simultaneously, it is faster but it must be used          *
-* with extreme  caution and with common sense, example file: index_2.php.                                                 *
-* Ten fonts simultaneously is enough AND, PLEASE, NOT FROM ONLY ONE SERVER if we                                          *
-* want to avoid to commute this demo into a cyber attack to google servers, and if we want to prevent                     *
-* google killing me and you; I joke, obviously, I joke ... ;)                                                             *
-* But, obviously, no one load ten fonts simultaneously in only one page. For testing, in the example N°2, fl. index_2.php *
-* by forcing the test, I have loaded seven different font simultaneously from only one server,                            *
+* to load the external fonts all together simultaneously,  index_2.php.                                                   *
+* To avoid changing this demo into a cyber attack to google servers, and if we want to prevent                            *
+* google killing me and you; I joke, obviously, I joke ... ;), in the example N 2,the font files are stored locally and   *
+* since, usually, we don't change fonts every day, why we have to connect each time to this external resources ?          *
+* is it necessary .... ? My thought is no, it is not necessary, instead, it need to set the .htaccess file with           *
+* a long time cache for the font files.                                                                                   *
+* In the EXAMPLE TWO I have loaded seven different font simultaneously from only one server,                              *
 * seven are too much, but I did it only for testing to show                                                               *
-* that also in this case, with seven different fonts loaded simultaneously, all text remains visible with                 *
+* that also in this case, with seven different fonts, all text remains visible with                                       *
 * the set up of the font-display during web fonts load.                                                                   *
-*                                                                                                                         *
+* Simultaneously is only the check of the server to the exeternal font resource because the resources are downloaded only *                                                                                                 
+* if locally don't exists.                                                                                                *
 * To avoid the critical request chain  https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains  *
 * I have set up to defer (load asynchronously) the style with a small escamotage:                                         *
-* <style media="none" onload="if(media!='all')media='all'" >                                                              *
-* The ligthhouse report of this demo with seven fonts loaded simultaneously is:                                           *
-* https://googlechrome.github.io/lighthouse/viewer/?gist=798a57975a8555b6417a09446ce50b09                                 *                                                                                      *
+* <style media="none" onload="if(media!='all')media='all'" >                                                              *                                                                                       *
 *                                                                                                                         *
-* SIMPLE CLASS USAGE EXAMPLE N°1 FILE: INDEX.PHP (NO SIMULTANEOUSLY)                                                      *
+* SIMPLE CLASS USAGE EXAMPLE N°1 FILE:INDEX.PHP (FONT-DISPLAY YES, NO SIMULTANEOUSLY CHECK,                               *
+* NO FONT FILES ARE STORED LOCALLY, .HTACCESS CACHE YES);                                                                 *
 * $ref= new Fontperformance;                                                                                              *
 * $font_1 = $ref->fontdisplay("link_to_font_api","fallback");                                                             *
 * $font_2 = $ref->fontdisplay("link_to_font_api","auto");                                                                 *
@@ -51,17 +51,18 @@
 * param 2 is a string, is the performance controlling option. Possible values are:                                        *
 * auto | block | swap | fallback | optional                                                                               *
 *                                                                                                                         *
-* ADVANCED CLASS USAGE EXAMPLE N°2 FILE: INDEX_2.PHP (SIMULTANEOUSLY)                                                     *
+* ADVANCED CLASS USAGE EXAMPLE N°2 FILE:INDEX_2.PHP (FONT-DISPLAY YES, SIMULTANEOUSLY CHECK YES,                          *
+* ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);                                        *
 * $ref= new Fontperformance;                                                                                              *
 * $apilink = array("link_to_font_api_1","link_to_font_api_n", ....);                                                      *
 * $ref->multi_simul_fontdisplay($apilink,"fallback" );                                                                    *
-* where the params1 is an array with all links to the font api                                                            *
+* where the params1 is an array with all links to the font api, it's good, also, for only one font,                       *
 * and where the param 2 is a string, is the performance controlling option. Possible values are:                          *
-* auto | block | swap | fallback | optional , this will return an array with all fonts.                                   *                                             *
-* PLEASE DO NOT FOLLOW MY BAD EXAMPLE, DON'T LOAD MORE THAN TWO MAXIMUM DIFFERENT FONTS SIMULTANEOUSLY                    *
+* auto | block | swap | fallback | optional , this will return an array with all fonts.                                   * 
 *                                                                                                                         *
 * For a complete reference guide about font-display descriptor values please consult:                                     *
 * https://developers.google.com/web/updates/2016/02/font-display                                                          *
+* https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values                                                     *
 **************************************************************************************************************************/
 
 class Fontperformance{
@@ -123,6 +124,24 @@ curl_setopt($x, CURLOPT_FOLLOWLOCATION, TRUE);
 curl_setopt($x, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($x, CURLOPT_ENCODING, "gzip,deflate");
 }
+
+private function strafter($string, $substring) {
+  $pos = strpos($string, $substring);
+
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, $pos+strlen($substring)));
+}
+
+private function strbefore($string, $substring) {
+  $pos = strpos($string, $substring);
+
+  if ($pos === false)
+   return $string;
+  else  
+   return(substr($string, 0, $pos));
+} 
 
 public function fontdisplay($fontlink,$option){
 $fontoption=$this->optionresolve($option); 
@@ -201,7 +220,24 @@ break;
 curl_multi_close($mh);
 }
 }
-return $multifont;  
+
+
+$directoryName = "fonts"; 
+if(!is_dir($directoryName)){
+mkdir($directoryName, 0777);
+}
+$q = 0;
+foreach($multifont as $source){
+$s1 = $this->strafter($source, "url(" );
+$url = $this->strbefore($s1, ") format");
+$filename = $directoryName."/".basename($url);
+if (!file_exists($filename)){
+file_put_contents($filename, file_get_contents($url));
+}
+$result[$q] = str_replace($url, $filename , $source );
+$q++;
+}
+return $result;    
 }
 
 }
