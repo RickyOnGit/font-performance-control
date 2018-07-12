@@ -30,7 +30,7 @@
  a long time cache for the font files.<br>                                                                                   
  In the EXAMPLE TWO I have loaded seven different font simultaneously from only one server,<br>                              
  seven are too much, but I did it only for testing to show<br>                                                               
- that also in this case, with seven different fonts loaded simultaneously, all text remains visible with<br>                 
+ that also in this case, with seven different fonts, all text remains visible with<br>                 
  the set up of the font-display during web fonts load.<br>                                                                   
  Simultaneously is only the check of the server to the exeternal font resource because the resources are downloaded only<br>              if locally don't exists.</p><br><br>
 <p>To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
