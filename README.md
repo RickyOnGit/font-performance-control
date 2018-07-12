@@ -36,7 +36,7 @@
 <p>To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
  style media="none" onload="if(media!='all')media='all'"<br><br>                                                              
  Here you can see the ligthhouse reports, about performances, of these two demo,<br>example N&deg;1 with two fonts not loaded simultaneously and<br>
- example N&deg;2 with seven fonts loaded simultaneously;<br><br>  
+ example N&deg;2 with seven different fonts;<br><br>  
  example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
  CPU throttling: 4x slowdown (DevTools):<br> 
  <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6">lighthouse performance report N 1</a><br>
@@ -67,7 +67,7 @@ ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);
  where the params1 is an array with all links to the font api, it's good, also, for only one font,                    
  and where the param 2 is a string, is the performance controlling option. Possible values are:  
  auto | block | swap | fallback | optional , this will return an array with all fonts.<br>                                
-<strong> PLEASE DO NOT FOLLOW MY BAD EXAMPLE, DON'T LOAD MORE THAN TWO MAXIMUM DIFFERENT FONTS SIMULTANEOUSLY</strong><br><br> 
+<br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
 <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br>
 <a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a><br><br>
