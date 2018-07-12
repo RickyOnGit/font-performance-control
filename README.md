@@ -70,6 +70,9 @@ ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);
 <br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
 <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br>
-<a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a><br><br>
+<a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a>:<br>
+The font-display descriptor for @font-feature-values determines how a font family is displayed, by setting the "default" font-display value for @font-face rules targeting the same font family. When font-display is omitted in an @font-face rule, the user agent uses the font-display value set via @font-feature-values for the relevant font-family if one is set, and otherwise defaults to font-display: auto.
+This mechanism can be used to set a default display policy for an entire font-family, and enables developers to set a display policy for @font-face rules that are not directly under their control. For example,<strong> when a font is served by a third-party font foundry, the developer does not control the @font-face rules</strong> but is still able to set a default font-display policy for the provided font-family. The ability to set a default policy for an entire font-family is also useful to avoid the ransom note effect (i.e. mismatched font faces) because the display policy is then applied to the entire font family.
+<br>
 <a href="https://api.whatsapp.com/send?phone=393315954155">Info & Contacts</a> 
 </p> 
