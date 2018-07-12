@@ -70,9 +70,9 @@ ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);
  $ref->multi_simul_fontdisplay($apilink,"fallback", <strong>true</strong> );                                                                    
  where the params1 is an array with all links to the font api, it's good, also, for only one font,                    
  and where the param 2 is a string, is the performance controlling option. Possible values are:  
- auto | block | swap | fallback | optional<br>, this will return an array with all fonts,<br>
- param 3: true o false, true for storing locally the exernal fonts, false for not storing, (default value is false).<br>              
-<br> 
+ auto | block | swap | fallback | optional, <br> 
+ param 3: true o false, true for storing locally the exernal fonts, false for not storing, (default value is false),<br>
+this will return an array with all fonts.<br><br> 
 For a complete reference guide about font-display descriptor please consult:<br> 
 <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br>
 <a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a><br>
