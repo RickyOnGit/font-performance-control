@@ -59,7 +59,7 @@
  param 2 is a string, is the performance controlling option. Possible values are:<br>                                        
  auto | block | swap | fallback | optional<br><br>                                                                               
                                                                                                                          
-<strong>ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE:INDEX_2.PHP (FONT-DISPLAY YES, SIMULTANEOUSLY CHECK YES,<br>                          
+<strong>ADVANCED CLASS USAGE EXAMPLE N&deg;2 FILE:INDEX_2.PHP (FONT-DISPLAY YES, SIMULTANEOUSLY CHECK YES,                          
 ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);</strong>          
  $ref= new Fontperformance;                                                                                              
  $apilink = array("link_to_font_api_1","link_to_font_api_n", ....);                                                      
