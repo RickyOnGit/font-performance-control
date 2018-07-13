@@ -156,8 +156,10 @@ width:100%;
  To avoid the <a href="https://developers.google.com/web/tools/lighthouse/audits/critical-request-chains">critical request chain</a><br>  
  I have set up to defer (load asynchronously) the style with a small escamotage:<br>                                         
  style media="none" onload="if(media!='all')media='all'"<br><br>                                                              
- Here you can see the ligthhouse reports, about performances, of these two demo,<br>example N&deg;1 with two fonts not loaded simultaneously and<br>
- example N&deg;2 with seven different fonts;<br><br>  
+Here you can see the ligthhouse reports, about performances, of these three demos,<br>example N&deg;1 with two fonts not loaded simultaneously,<br>
+ example N&deg;2 with seven different fonts loaded and stored locally and<br>example N&deg;3 with seven different fonts loaded simultaneously but not stored locally.<br>
+ These tests are only indicative and to make a correct comparison<br> the quantities should be homogeneous, ie load the same number of fonts.<br> 
+ In any case, from the various others tests carried out, the fastest is, in any case, the example N&deg;2.<br><br>  
  example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
  CPU throttling: 4x slowdown (DevTools):<br> 
  <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6">lighthouse performance report N 1</a><br>
@@ -169,7 +171,13 @@ width:100%;
  <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=23b8f92d04eb3f32f6cfd7e317535510">lighthouse performance report N 2</a><br>
  example N&deg;2 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)<br>
  CPU throttling: 4x slowdown (Simulated):<br>
- <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b01c2975e469b0a2d36ea2224a78a84f">lighthouse performance report N 2</a><br><br>                                                                                                                       
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b01c2975e469b0a2d36ea2224a78a84f">lighthouse performance report N 2</a><br><br>
+  example N&deg;3 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
+ CPU throttling: 4x slowdown (DevTools):<br>
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=44ee33c578e928a59d04f13a60f18675">lighthouse performance report N 3</a><br>
+ example N&deg;3 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)<br>
+ CPU throttling: 4x slowdown (Simulated):<br>
+ <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=7d88e7348587aa49bc582e0e78375520">lighthouse performance report N 3</a><br><br>                                                                                                                       
                                                                                                                          
 <strong>SIMPLE CLASS USAGE EXAMPLE N&deg;1 FILE:INDEX.PHP (FONT-DISPLAY YES, NO SIMULTANEOUSLY CHECK,<br>                               
  NO FONT FILES ARE STORED LOCALLY, .HTACCESS CACHE YES);</strong><br>                                                      
