@@ -42,7 +42,7 @@
  Here you can see the ligthhouse reports, about performances, of these three demos,<br>example N&deg;1 with two fonts not loaded simultaneously,<br>
  example N&deg;2 with seven different fonts loaded and stored locally and<br>example N&deg;3 with seven different fonts loaded simultaneously but not stored locally.<br>
  These tests are only indicative and to make a correct comparison<br> the quantities should be homogeneous, ie load the same number of fonts.<br> 
- In any case, from the various others tests carried out, the fastest is, obviously, in any case, the example N&deg;2.<br><br>  
+ In any case, from the various others tests carried out, the fastest is, obviously, the example N&deg;2.<br><br>  
  example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
  CPU throttling: 4x slowdown (DevTools):<br> 
  <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6">lighthouse performance report N 1</a><br>
