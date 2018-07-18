@@ -40,7 +40,7 @@ A possible way is, to use the PHP to manipulate this external resourse and add
 the font-display option param inside the css function, moreover, in this way, the API keys, when these are necessary,
 will be hidden.
 
-With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE N°2 FILE: INDEX_2.PHP)
+With this php class there is also the possibility (VIEW:ADVANCED CLASS USAGE EXAMPLE NÂ°2 FILE: INDEX_2.PHP)
 to load the external fonts all together simultaneously, index_2.php.
 I have entered the possibility,
 for the external font files, to be stored locally setting a param option: true for locally stored and false for not.
@@ -62,43 +62,43 @@ I have set up to defer (load asynchronously) the style with a small escamotage:
 style media="none" onload="if(media!='all')media='all'"
 
 Here you can see the ligthhouse reports, about performances, of these three demos,
-example N°1 with two fonts not loaded simultaneously,
-example N°2 with seven different fonts loaded and stored locally and
-example N°3 with seven different fonts loaded simultaneously but not stored locally.
+example NÂ°1 with two fonts not loaded simultaneously,
+example NÂ°2 with seven different fonts loaded and stored locally and
+example NÂ°3 with seven different fonts loaded simultaneously but not stored locally.
 These tests are only indicative and to make a correct comparison
 the quantities should be homogeneous, ie load the same number of fonts.
-In any case, from the various others tests carried out, the fastest, obviously, is, in any case, the example N°2.
+In any case, from the various others tests carried out, the fastest, obviously, is, in any case, the example NÂ°2.
 
-example N°1 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°1 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)
 CPU throttling: 4x slowdown (DevTools):
 https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6
-example N°1 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°1 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)
 CPU throttling: 4x slowdown (Simulated):
 https://googlechrome.github.io/lighthouse/viewer/?gist=e79ffd09199fecaa5ecd35f84f3d32e8
 
-example N°2 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°2 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)
 CPU throttling: 4x slowdown (DevTools):
 https://googlechrome.github.io/lighthouse/viewer/?gist=23b8f92d04eb3f32f6cfd7e317535510
-example N°2 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°2 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)
 CPU throttling: 4x slowdown (Simulated):
 https://googlechrome.github.io/lighthouse/viewer/?gist=b01c2975e469b0a2d36ea2224a78a84f
 
-example N°3 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°3 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)
 CPU throttling: 4x slowdown (DevTools):
 https://googlechrome.github.io/lighthouse/viewer/?gist=44ee33c578e928a59d04f13a60f18675
-example N°3 Emulated Nexus 5X, Throttled Fast 3G network,
+example NÂ°3 Emulated Nexus 5X, Throttled Fast 3G network,
 Network throttling: 150 ms TCP RTT, 1.638,4 Kbps throughput (Simulated)
 CPU throttling: 4x slowdown (Simulated):
 https://googlechrome.github.io/lighthouse/viewer/?gist=7d88e7348587aa49bc582e0e78375520
 
 
 
-SIMPLE CLASS USAGE EXAMPLE N°1 FILE:INDEX.PHP (FONT-DISPLAY YES, NO SIMULTANEOUSLY CHECK,
+SIMPLE CLASS USAGE EXAMPLE NÂ°1 FILE:INDEX.PHP (FONT-DISPLAY YES, NO SIMULTANEOUSLY CHECK,
 NO FONT FILES ARE STORED LOCALLY, .HTACCESS CACHE YES);
 $ref= new Fontperformance;
 $font_1 = $ref->fontdisplay("link_to_font_api","fallback");
@@ -107,7 +107,7 @@ Where param 1 is a string, is the link to external font resource, in this exampl
 param 2 is a string, is the performance controlling option. Possible values are:
 auto | block | swap | fallback | optional
 
-ADVANCED CLASS USAGE EXAMPLE N°2 FILE:INDEX_2.PHP (FONT-DISPLAY YES, SIMULTANEOUSLY CHECK YES,
+ADVANCED CLASS USAGE EXAMPLE NÂ°2 FILE:INDEX_2.PHP (FONT-DISPLAY YES, SIMULTANEOUSLY CHECK YES,
 ALL FONT FILES ARE STORED LOCALLY IF LOCALLY DO NOT EXIST, .HTACCESS CACHE YES);
 $ref= new Fontperformance;
 $apilink = array("link_to_font_api_1","link_to_font_api_n", ....);
@@ -123,3 +123,6 @@ Controlling Font Performance with font-display:
 https://developers.google.com/web/updates/2016/02/font-display
 W3C font display: 
 https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values
+
+Author Riccardo Castagna 
+Ph: +39 3315954155
