@@ -28,8 +28,8 @@
  To avoid changing this demo into a cyber attack to google servers, and if we want to prevent<br>                          
  google killing me and you; I joke, obviously, I joke ... ;), in the example N&deg;2,  I have entered  the possibility,<br>       
  for the external font files, to be stored locally setting a param option: true for locally stored and false for not.<br>     
- Since, usually, we don't change fonts every day, why we have to connect each time to this external resources ?<br>          
- Is it necessary .... ? My thought is no, it is not necessary, instead, it need to set the .htaccess file with<br>           
+ Since, usually, we don't change fonts every day, why we have to connect each time, to all part of the world, to load this external resources ?<br>          
+ Is it necessary .... ? Is it fast ? My thought is no and speed test give me reason to belive that it is not necessary, instead, it need to set the .htaccess file with<br>         
  a long time cache for the font files.<br>                                                                                    
  In the EXAMPLE TWO I have loaded seven different font simultaneously from only one server,<br>                              
  seven are too much, but I did it only for testing to show<br>                                                               
@@ -42,7 +42,7 @@
  Here you can see the ligthhouse reports, about performances, of these three demos,<br>example N&deg;1 with two fonts not loaded simultaneously,<br>
  example N&deg;2 with seven different fonts loaded and stored locally and<br>example N&deg;3 with seven different fonts loaded simultaneously but not stored locally.<br>
  These tests are only indicative and to make a correct comparison<br> the quantities should be homogeneous, ie load the same number of fonts.<br> 
- In any case, from the various others tests carried out, the fastest is, in any case, the example N&deg;2.<br><br>  
+ In any case, from the various others tests carried out, the fastest is, obviously, in any case, the example N&deg;2.<br><br>  
  example N&deg;1 Emulated Nexus 5X, Throttled Fast 3G network,<br> Network throttling: 562,5 ms HTTP RTT, 1.474,6 Kbps down, 675 Kbps up (DevTools)<br>
  CPU throttling: 4x slowdown (DevTools):<br> 
  <a href="https://googlechrome.github.io/lighthouse/viewer/?gist=b316fc892210f82dfcf56f5285c75ee6">lighthouse performance report N 1</a><br>
