@@ -174,15 +174,22 @@ $n = count($paramfont);
 $q = count($paramoption);
 $stop = ($n -1);
 if(($n>0)&&($q==1)){
-
+$running = null;
 $ch = array();
 $font = array();
 $fontoption = array();
 $multifont = array();
-$mh = curl_multi_init();
+
+$fontoption[0]=$this->optionresolve($paramoption);
+$externalfont[0] = $this->linkresolve($paramfont[0]);
+$ch[0] = curl_init();
+$this->set_option($ch[0], $ssl.$externalfont[0]);
+$mh = curl_multi_init(); 
+curl_multi_add_handle($mh, $ch[0]);
  
-$m=0;
-foreach ($paramfont as $k => $fontvalue){           
+$m=1;
+foreach ($paramfont as $k => $fontvalue){
+if($k!==0){           
 $fontoption[$m]=$this->optionresolve($paramoption);
 $externalfont[$m] = $this->linkresolve($fontvalue);
 $ch[$m] = curl_init();  
@@ -190,8 +197,8 @@ $this->set_option($ch[$m], $ssl.$externalfont[$m]);
 curl_multi_add_handle($mh, $ch[$m]); 
 $m++;
 }
+}
 
-$running = null;
 do { 
 curl_multi_exec($mh, $running); 
 } while ($running);
