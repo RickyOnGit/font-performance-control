@@ -125,6 +125,7 @@ curl_setopt($x, CURLOPT_URL,  $y);
 curl_setopt($x, CURLOPT_HEADER, 0);
 curl_setopt($x, CURLOPT_FOLLOWLOCATION, TRUE);
 curl_setopt($x, CURLOPT_RETURNTRANSFER, TRUE);
+curl_setopt($x, CURLOPT_TCP_FASTOPEN, TRUE);
 curl_setopt($x, CURLOPT_ENCODING, "gzip,deflate");
 }
 
@@ -166,7 +167,12 @@ return $fontdisplayoption;
 }
 
 
-
+/********************************************************************************
+* to make the cURL_Multi stable it is necessary to divide the loop of the array,* 
+* first add curl_multi_add_handle at the key number zero with no loop,          *
+* than add the others curl_multi_add_handle running the loop                    *
+* with start key number one.                                                    *
+* ******************************************************************************/
 public function multi_simul_fontdisplay($paramfont,$paramoption,$stored=false){
 if ((is_array($paramfont))&&(isset($paramoption))) {
 $ssl = $this->sslresolve();
