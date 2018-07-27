@@ -85,6 +85,9 @@ this will return an array with all fonts.<br><br>
 For a complete reference guide about font-display descriptor please consult:<br> 
 <a href="https://developers.google.com/web/updates/2016/02/font-display">Controlling Font Performance with font-display</a><br>
 <a href="https://www.w3.org/TR/css-fonts-4/#font-display-font-feature-values">W3C font display</a><br>
-<br>
+<br><br>
+<strong> 2018.07.27 important update: before this update, with an option, the files were downloaded locally and the client device did not have to connect to the external fonts but the server, however, always did.
+With this update, in addition to the files of external fonts downloaded, text files are created and the server, verifying the presence of these text files, no longer connects to the server of external fonts.
+This update further improves web performance and fonts seem to be welded. View example (updated) N&deg;2 (index_2.php) and new example  N&deg;4 (index_4.php) </strong><br>
 <a href="https://api.whatsapp.com/send?phone=393315954155">Info & Contacts</a> 
 </p> 
