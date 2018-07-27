@@ -70,21 +70,6 @@
 
 class Fontperformance{
 
-private function sslresolve(){
-if (!empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] != "off") {
-$http = "https://";    
-} else {$http = "http://";} 
-return $http;
-}
-
-private function linkresolve($fontlink){
-$arr_1 = array("https://","http://");
-$arr_2 = array("","");
-$link = str_replace($arr_1,$arr_2,$fontlink);
-return $link; 
-}
-
-
 private function optionresolve($option){
 switch ($option) {
     case "auto":
@@ -127,6 +112,8 @@ curl_setopt($x, CURLOPT_FOLLOWLOCATION, TRUE);
 curl_setopt($x, CURLOPT_RETURNTRANSFER, TRUE);
 curl_setopt($x, CURLOPT_TCP_FASTOPEN, TRUE);
 curl_setopt($x, CURLOPT_ENCODING, "gzip,deflate");
+curl_setopt($x, CURLOPT_SSL_VERIFYPEER, FALSE);
+curl_setopt($x, CURLOPT_SSL_VERIFYHOST, FALSE);
 }
 
 private function strafter($string, $substring) {
@@ -148,11 +135,9 @@ private function strbefore($string, $substring) {
 } 
 
 public function fontdisplay($fontlink,$option){
-$fontoption=$this->optionresolve($option); 
-$ssl = $this->sslresolve();
-$externalfont = $this->linkresolve($fontlink); 
+$fontoption=$this->optionresolve($option);
 $ch1 = curl_init();  
-$this->set_option($ch1, $ssl.$externalfont);
+$this->set_option($ch1, $fontlink);
 $mh = curl_multi_init();
 curl_multi_add_handle($mh, $ch1); 
 $running = null;
@@ -172,10 +157,13 @@ return $fontdisplayoption;
 * first add curl_multi_add_handle at the key number zero with no loop,          *
 * than add the others curl_multi_add_handle running the loop                    *
 * with start key number one.                                                    *
+* About this issue I have posted a note here :                                  *
+* http://php.net/manual/it/function.curl-multi-add-handle.php#122964            *
+* 3315954155 at libero dot it                                                   *
 * ******************************************************************************/
 public function multi_simul_fontdisplay($paramfont,$paramoption,$stored=false){
 if ((is_array($paramfont))&&(isset($paramoption))) {
-$ssl = $this->sslresolve();
+
 $n = count($paramfont);
 $q = count($paramoption);
 $stop = ($n -1);
@@ -187,9 +175,41 @@ $fontoption = array();
 $multifont = array();
 
 $fontoption[0]=$this->optionresolve($paramoption);
-$externalfont[0] = $this->linkresolve($paramfont[0]);
+
+if ($stored==true){
+$directoryName = "fonts"; 
+if(!is_dir($directoryName)){
+mkdir($directoryName, 0777);
+}
+$i=0;
+foreach ($paramfont as $fontstringname){
+$fontname[$i] = $this->strafter($fontstringname, "?family=").".txt";
+$fontnametxt[$i] = $directoryName."/".$fontname[$i];
+$i++;
+}
+
+$t=0;
+foreach($fontnametxt as $check){
+if((file_exists($check))&&($check == $directoryName."/".pathinfo($check,PATHINFO_BASENAME))){
+$t++;
+}
+}
+
+if($n!==$t){
+$filetodelete = glob($directoryName."/*");
+foreach($filetodelete as $delete){
+if(is_file($delete)){
+unlink($delete);
+}
+}
+} 
+}
+if ($stored==false){
+$t=-1;
+}
+if ($n!==$t){
 $ch[0] = curl_init();
-$this->set_option($ch[0], $ssl.$externalfont[0]);
+$this->set_option($ch[0], $paramfont[0]);
 $mh = curl_multi_init(); 
 curl_multi_add_handle($mh, $ch[0]);
  
@@ -197,9 +217,8 @@ $m=1;
 foreach ($paramfont as $k => $fontvalue){
 if($k!==0){           
 $fontoption[$m]=$this->optionresolve($paramoption);
-$externalfont[$m] = $this->linkresolve($fontvalue);
 $ch[$m] = curl_init();  
-$this->set_option($ch[$m], $ssl.$externalfont[$m]); 
+$this->set_option($ch[$m], $fontvalue); 
 curl_multi_add_handle($mh, $ch[$m]); 
 $m++;
 }
@@ -229,14 +248,14 @@ break;
 curl_multi_close($mh);
 }
 }
+}
 if($stored==false){
+
 return $multifont;
+
 }
-else if($stored==true){ 
-$directoryName = "fonts"; 
-if(!is_dir($directoryName)){
-mkdir($directoryName, 0777);
-}
+else if(($stored==true)&&($n!==$t)){
+ 
 $q = 0;
 foreach($multifont as $source){
 $s1 = $this->strafter($source, "url(" );
@@ -246,10 +265,32 @@ if (!file_exists($filename)){
 file_put_contents($filename, file_get_contents($url));
 }
 $result[$q] = str_replace($url, $filename , $source );
+$newfile[$q] = fopen($fontnametxt[$q], "w");
+fwrite($newfile[$q], $result[$q]);
+fclose($newfile[$q]);
+$this->fileurl[$q] = $filename;
+$this->filext[$q] = pathinfo($filename,PATHINFO_EXTENSION);
 $q++;
 }
+
 return $result;
-}    
+}else if (($stored==true)&&($n==$t)){
+$g = 0;
+foreach($paramfont as $storedfont){
+$newfile[$g] = fopen($fontnametxt[$g], "r");
+$result[$g]  = fread($newfile[$g],filesize($fontnametxt[$g]));
+$s1 = $this->strafter($result[$g], "url(" );
+$url = $this->strbefore($s1, ") format");
+$filename = $directoryName."/".basename($url);
+$this->fileurl[$g] = $filename;
+$this->filext[$g] = pathinfo($filename,PATHINFO_EXTENSION);
+fclose($newfile[$g]);
+$g++;
+}
+
+return $result;
+}
+    
 }
 
 }
