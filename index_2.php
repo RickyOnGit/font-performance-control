@@ -78,8 +78,17 @@ $apilink =array(
 "https://fonts.googleapis.com/css?family=Inconsolata",
 "https://fonts.googleapis.com/css?family=Gaegu"
 );
-$font_display = $ref->multi_simul_fontdisplay($apilink,"fallback", true );
-list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display; 
+
+$s = true; //to store file font set it to true
+
+$font_display = $ref->multi_simul_fontdisplay($apilink,"fallback", $s );
+list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display;
+if($s==true){
+list($url_1, $url_2, $url_3,$url_4,$url_5,$url_6,$url_7) = $ref->fileurl;
+list($ext_1, $ext_2, $ext_3,$ext_4,$ext_5,$ext_6,$ext_7) = $ref->filext;
+} else {
+list($url_1, $url_2, $url_3,$url_4,$url_5,$url_6,$url_7) = $apilink;
+}
 ?>
 <!DOCTYPE html>
 <html lang='it'>
@@ -93,6 +102,26 @@ list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display;
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
     <link href='./php-icon.png' rel='shortcut icon' type='image/png'>
+<?php    
+if ($s==true){    
+echo"<link rel=\"preload\" href=\"$url_1\" as=\"font\" type=\"font/$ext_1\" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_2 \" as=\"font\" type=\"font/ $ext_2 \" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_3 \" as=\"font\" type=\"font/ $ext_3 \" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_4 \" as=\"font\" type=\"font/ $ext_4 \" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_5 \" as=\"font\" type=\"font/ $ext_5 \" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_6 \" as=\"font\" type=\"font/ $ext_6 \" crossorigin=\"anonymous\">
+     <link rel=\"preload\" href=\" $url_7 \" as=\"font\" type=\"font/ $ext_7 \" crossorigin=\"anonymous\">";
+}else {
+echo"<link rel=\"preload\" href=\"$url_1\" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_2 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_3 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_4 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_5 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_6 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">
+     <link rel=\"preload\" href=\" $url_7 \" as=\"font\" crossorigin=\"https://fonts.googleapis.com\">";
+
+}
+?>   
 <style media="none" onload="if(media!='all')media='all'" >
 
 <?php 
@@ -101,7 +130,9 @@ list($font_1,$font_2,$font_3,$font_4,$font_5,$font_6,$font_7)=$font_display;
  * avoid list()=$array; and print inside style with foreach:
  * <style> <?php foreach($font_display as $fonts){echo $fonts;} ?> ...
  *****************************************************************/
-echo $font_1, $font_2, $font_3, $font_4, $font_5, $font_6,$font_7;  
+echo $font_1, $font_2, $font_3, $font_4, $font_5, $font_6, $font_7; 
+
+  
 ?>
 
 body { 
