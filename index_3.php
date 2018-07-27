@@ -93,6 +93,7 @@ $font_display = $ref->multi_simul_fontdisplay($apilink,"fallback", false );
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta http-equiv='X-UA-Compatible' content='IE=edge'> -->
     <link href='./php-icon.png' rel='shortcut icon' type='image/png'>
+   
 <style media="none" onload="if(media!='all')media='all'" >
 
 <?php 
